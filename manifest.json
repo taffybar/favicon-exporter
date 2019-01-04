@@ -1,0 +1,26 @@
+{
+  "name": "favicon-exporter",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Allow external applications to access the favicon images of chrome tabs",
+  "homepage_url": "https://github.com/IvanMalison/dotfiles",
+  "default_locale": "en",
+  "background": {
+    "page": "src/bg/background.html",
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["js/setTitle.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "chrome://favicon/*",
+    "tabs",
+    "http://localhost/",
+    "http://*/*",
+    "https://*/*"
+  ]
+}
